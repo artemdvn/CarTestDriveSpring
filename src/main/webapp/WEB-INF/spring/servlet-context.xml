@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- DispatcherServlet Context: defines servlet configuration, its available beans -->
+	<!-- Enable using of Spring MVC annotations (@Controller etc.) -->
+	<annotation-driven />
+	<!-- All statics (views, css-files, javascript) put in webapp/resources folder and map on /resources/** URL -->
+	<resources mapping="/resources/**" location="/resources/" />
+	<!-- Views (jsp-files), in /WEB-INF/views folder-->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	<!-- File with controller settings -->
+	<beans:import resource="controllers.xml" />
+</beans:beans>
